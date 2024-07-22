@@ -7,9 +7,3 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ("email", "password1", "password2")
-
-
-class UserRecoveryForm(PasswordResetForm):
-    class Meta:
-        model = User
-        fields = ("email",)

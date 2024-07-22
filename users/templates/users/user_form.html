@@ -8,20 +8,22 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-titel">
-                            Вход
+                            Регистрация
                         </h3>
                         <div class="card-body">
                             {% csrf_token %}
-                            {{ form.as_p}}
+                            {{ form.as_p }}
                         </div>
                         <button type="submit" class="btn btn-primary">
-                            Войти
+                            Зарегестрировать
                         </button>
+                        <h6 class="card-title">
+                            Для подтверждения регистрации вам будет отправлена ссылка
+                        </h6>
                     </div>
                 </div>
-                <a href="#" >Востановить пароль</a>
             </div>
         </div>
     </div>
-</form>>
+</form>
 {% endblock %}
