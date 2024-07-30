@@ -11,7 +11,7 @@ class Client(models.Model):
     last_name = models.CharField(max_length=35, verbose_name="last_name", **NULLABLE)
     email = models.EmailField(unique=True, verbose_name='email')
     comment = models.TextField(verbose_name='comment', **NULLABLE)
-    company = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, **NULLABLE, related_name="client")
 
     def __str__(self):
         return f" {self.name} {self.email}"

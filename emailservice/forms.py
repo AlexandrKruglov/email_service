@@ -10,6 +10,10 @@ class MailingForm(ModelForm):
         model = Mailing
         fields = ('name', 'message', 'clients', 'period_mail', 'start_mail', 'stop_mail', 'next_send_time')
 
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['clients'] = User.client.all()
+
 
 class ClientForm(ModelForm):
     class Meta:
