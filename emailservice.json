@@ -1,0 +1,216 @@
+[
+  {
+    "model": "emailservice.client",
+    "pk": 1,
+    "fields": {
+      "name": "Иван",
+      "last_name": "Иванов",
+      "email": "ivan@ivanov.ru",
+      "comment": "тест1",
+      "user": 2
+    }
+  },
+  {
+    "model": "emailservice.client",
+    "pk": 3,
+    "fields": {
+      "name": "петр",
+      "last_name": "петров",
+      "email": "krul-alex@yandex.ru",
+      "comment": "--",
+      "user": 2
+    }
+  },
+  {
+    "model": "emailservice.client",
+    "pk": 4,
+    "fields": {
+      "name": "василий",
+      "last_name": "васильев",
+      "email": "krulalex84@gmail.com",
+      "comment": "12345",
+      "user": 3
+    }
+  },
+  {
+    "model": "emailservice.mailing",
+    "pk": 2,
+    "fields": {
+      "name": "мой продукт",
+      "message": "test",
+      "created_at": "2024-07-21T15:03:19.481Z",
+      "updated_at": "2024-07-22T16:31:21.820Z",
+      "start_mail": "2024-07-21T00:00:00Z",
+      "stop_mail": "2024-07-22T00:00:00Z",
+      "period_mail": "ежедневно",
+      "status_mail": "завершена",
+      "next_send_time": "2024-07-22T21:00:00Z",
+      "last_send_at": "2024-07-21T21:00:31.820Z",
+      "owner": 2,
+      "clients": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "emailservice.mailing",
+    "pk": 3,
+    "fields": {
+      "name": "мое биржа",
+      "message": "test12344",
+      "created_at": "2024-07-21T16:43:49.785Z",
+      "updated_at": "2024-07-24T00:22:23.811Z",
+      "start_mail": "2024-07-21T00:00:00Z",
+      "stop_mail": "2024-07-23T00:00:00Z",
+      "period_mail": "ежедневно",
+      "status_mail": "завершена",
+      "next_send_time": "2024-07-23T21:00:00Z",
+      "last_send_at": "2024-07-22T21:14:54.796Z",
+      "owner": 2,
+      "clients": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "emailservice.mailing",
+    "pk": 4,
+    "fields": {
+      "name": "test2",
+      "message": "hellow",
+      "created_at": "2024-07-21T17:22:03.738Z",
+      "updated_at": "2024-07-22T18:48:51.828Z",
+      "start_mail": "2024-07-21T17:21:23Z",
+      "stop_mail": "2024-07-22T17:20:24Z",
+      "period_mail": "ежедневно",
+      "status_mail": "завершена",
+      "next_send_time": "2024-07-22T21:00:00Z",
+      "last_send_at": "2024-07-21T21:00:31.820Z",
+      "owner": 2,
+      "clients": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "emailservice.mailing",
+    "pk": 5,
+    "fields": {
+      "name": "emailtest",
+      "message": "uytrfghncgm",
+      "created_at": "2024-07-22T22:00:24.721Z",
+      "updated_at": "2024-07-24T00:22:23.817Z",
+      "start_mail": "2024-07-22T21:59:26Z",
+      "stop_mail": "2024-07-23T21:59:17Z",
+      "period_mail": "ежедневно",
+      "status_mail": "завершена",
+      "next_send_time": "2024-07-23T21:00:00Z",
+      "last_send_at": null,
+      "owner": 3,
+      "clients": [
+        4,
+        3
+      ]
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 1,
+    "fields": {
+      "time": "2024-07-21T17:17:26.806Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 3
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 2,
+    "fields": {
+      "time": "2024-07-21T17:17:27.266Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 3
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 3,
+    "fields": {
+      "time": "2024-07-21T17:22:05.390Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 4
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 4,
+    "fields": {
+      "time": "2024-07-21T17:37:42.765Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 2
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 5,
+    "fields": {
+      "time": "2024-07-21T17:37:43.267Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 2
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 6,
+    "fields": {
+      "time": "2024-07-21T21:00:33.669Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 3
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 7,
+    "fields": {
+      "time": "2024-07-21T21:00:34.722Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 4
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 8,
+    "fields": {
+      "time": "2024-07-21T21:00:36.004Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 2
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 9,
+    "fields": {
+      "time": "2024-07-22T21:14:55.530Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 3
+    }
+  },
+  {
+    "model": "emailservice.log",
+    "pk": 10,
+    "fields": {
+      "time": "2024-07-22T21:14:55.931Z",
+      "status": "Успешно",
+      "server_response": "1",
+      "mailing": 3
+    }
+  }
+]
