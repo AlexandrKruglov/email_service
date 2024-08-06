@@ -12,7 +12,9 @@ class MailingForm(ModelForm):
 
     # def __init__(self, *args, **kwargs):
     #     super().__init__(*args, **kwargs)
-    #     self.fields['clients'] = User.client.all()
+    #     user =
+    #
+    #     self.fields['clients'].queryset = Client.user.filter(user=user)
 
 
 class ClientForm(ModelForm):
