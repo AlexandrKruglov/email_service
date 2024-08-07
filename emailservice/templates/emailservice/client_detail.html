@@ -9,7 +9,7 @@
                     <p class="card-text">фамилия: {{ client.last_name }}</p>
                     <p class="card-text">email: {{ client.email }}</p>
                     <p class="card-text">коментарий: {{ client.comment }}</p>
-                    <p class="card-text">Владелец: {{ client.company }}</p>
+                    <p class="card-text">Владелец: {{ client.owner }}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <a href="{% url 'emailservice:client_edit' client.pk %}" type="button"

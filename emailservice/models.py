@@ -11,7 +11,7 @@ class Client(models.Model):
     last_name = models.CharField(max_length=35, verbose_name="last_name", **NULLABLE)
     email = models.EmailField(unique=True, verbose_name='email')
     comment = models.TextField(verbose_name='comment', **NULLABLE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, **NULLABLE, related_name="client")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, **NULLABLE, related_name="client")
 
     def __str__(self):
         return f" {self.name} {self.email}"
@@ -43,7 +43,7 @@ class Mailing(models.Model):
     message = models.TextField(verbose_name="Сообщение")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создана")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Изменена")
-    clients = models.ManyToManyField(Client, related_name="mailings", verbose_name="Клиенты")
+    clients = models.ManyToManyField(Client, related_name="clients", verbose_name="Клиенты")
     start_mail = models.DateTimeField(default=timezone.now, verbose_name="Начало рассылки")
     stop_mail = models.DateTimeField(default=(timezone.now() + timezone.timedelta(days=1)),
                                      verbose_name="Конец рассылки")

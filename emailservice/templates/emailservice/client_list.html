@@ -20,7 +20,7 @@
             </thead>
 
             {% for client in object_list %}
-            {% if user == client.user %}
+            {% if user == client.owner %}
             <tbody>
             <tr>
                 <th scope="row">{{client.id}}</th>

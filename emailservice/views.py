@@ -63,6 +63,10 @@ class MailingCreateView(CreateView):
     fields = ('name', 'message', 'clients', 'period_mail', 'start_mail', 'stop_mail', 'next_send_time')
     success_url = reverse_lazy('emailservice:lk')
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'request': self.request})
+        return kwargs
     # def get_context_data(self, **kwargs):
     #     context_data = super().get_context_data(**kwargs)
     #     user = self.request.user
@@ -71,18 +75,18 @@ class MailingCreateView(CreateView):
     #     context_data['clients'] = user.clients.filter(user=user)
     #     return context_data
 
-    def get_queryset(self, **kwargs):
-        queryset = super().queryset(**kwargs)
-        user = self.request.user
+    # def get_queryset(self, **kwargs):
+    #     queryset = super().queryset(**kwargs)
+    #     user = self.request.user
     #     queryset.clients = User.client.filter(user=user)
     #     queryset.clients = queryset.clients.filter(user=user)
-        clients = self.request.data.get('clients')
-        queryset.clients = clients
+    #     clients = self.request.data.get('clients')
+    #     queryset.clients = clients
     #     queryset = queryset.clients.filter(user=user)
     #     mailings = Mailing.objects.all()
     #     clients = Client.objects.filter(user=user)
     #     context_data['clients'] = clients
-        return queryset
+    #     return queryset
 
     def form_valid(self, form):
         mailing = form.save()

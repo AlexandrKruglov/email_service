@@ -12,6 +12,6 @@ class MailingAdmin(admin.ModelAdmin):
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ('email', 'name', 'last_name', 'user')
-    list_filter = ('user',)
-    search_fields = ('email', 'user')
+    list_display = ('email', 'name', 'last_name', 'owner')
+    list_filter = ('owner',)
+    search_fields = ('email', 'owner')
