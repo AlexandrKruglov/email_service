@@ -78,7 +78,7 @@ class MailingCreateView(CreateView):
     def get_queryset(self, *args, **kwargs):
         queryset = super().queryset(**kwargs)
         user = self.request.user
-        queryset.clients = Client.objects.filter(user=user)
+        queryset.clients = Client.objects.filter(owner=user)
         return queryset
     #     queryset.clients = User.client.filter(user=user)
     #     queryset.clients = queryset.clients.filter(user=user)
