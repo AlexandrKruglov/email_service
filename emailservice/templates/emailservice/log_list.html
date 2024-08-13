@@ -16,12 +16,14 @@
     </thead>
     <tbody>
     {% for log in object_list %}
+
     <tr>
         <td>{{ log.mailing }}</td>
         <td>{{ log.time }}</td>
         <td>{{ log.status }}</td>
         <td>{{ log.server_response }}</td>
     </tr>
+
     {% endfor %}
     </tbody>
 </table>

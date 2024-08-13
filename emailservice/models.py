@@ -58,7 +58,7 @@ class Mailing(models.Model):
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, **NULLABLE)
 
     def __str__(self):
-        return f"{self.name} ({self.last_send_at})"
+        return f"{self.name} ({self.last_send_at}) {self.owner}"
 
     class Meta:
         verbose_name = "рассылка"

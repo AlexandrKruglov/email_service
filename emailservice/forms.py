@@ -7,11 +7,10 @@ from users.models import User
 
 class MailingForm(ModelForm):
 
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     self.request = kwargs.pop('request')
-    #     user = self.request.user
-    #     self.fields['clients'].queryset = Client.objects.filter(owner=user)
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request')
+        super(MailingForm, self).__init__(*args, **kwargs)
+        self.fields['clients'].queryset = Client.objects.filter(owner=self.request.user)
 
     class Meta:
         model = Mailing
@@ -21,4 +20,4 @@ class MailingForm(ModelForm):
 class ClientForm(ModelForm):
     class Meta:
         model = Client
-        fields = '__all__'
+        fields = ('name', 'last_name', 'email', 'comment')

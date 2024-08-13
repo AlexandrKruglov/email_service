@@ -14,6 +14,13 @@ class ClientCreateView(CreateView):
     form_class = ClientForm
     success_url = reverse_lazy('emailservice:client_list')
 
+    def form_valid(self, form):
+        client_form = form.save()
+        user = self.request.user
+        client_form.owner = user
+        client_form.save()
+        return super().form_valid(form)
+
 
 class ClientListView(ListView):
     model = Client
@@ -40,12 +47,6 @@ class EmailservicePageVeiw(TemplateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        # mailings = Mailing.objects.all()
-        # clients = Client.objects.all()
-        # context_data['all_mailings'] = mailings.count()
-        # context_data['active_mailings'] = mailings.filter(status=Mailing.STARTED).count()
-        # context_data['active_clients'] = clients.values('email').distinct().count()
-
         context_data['blogs'] = get_articles_from_cache().order_by('?')[:3]
         return context_data
 
@@ -60,35 +61,13 @@ class EmailserviceListView(ListView):
 
 class MailingCreateView(CreateView):
     model = Mailing
-    fields = ('name', 'message', 'clients', 'period_mail', 'start_mail', 'stop_mail', 'next_send_time')
+    form_class = MailingForm
     success_url = reverse_lazy('emailservice:lk')
 
-    # def get_form_kwargs(self):
-    #     kwargs = super().get_form_kwargs()
-    #     kwargs.update({'request': self.request})
-    #     return kwargs
-    # def get_context_data(self, **kwargs):
-    #     context_data = super().get_context_data(**kwargs)
-    #     user = self.request.user
-    #     context_data['clients'] = Client.objects.filter(user=user).exists()
-    #     clients = Client.objects.filter(user=user)
-    #     context_data['clients'] = user.clients.filter(user=user)
-    #     return context_data
-
-    def get_queryset(self, *args, **kwargs):
-        queryset = super().queryset(**kwargs)
-        user = self.request.user
-        queryset.clients = Client.objects.filter(owner=user)
-        return queryset
-    #     queryset.clients = User.client.filter(user=user)
-    #     queryset.clients = queryset.clients.filter(user=user)
-    #     clients = self.request.data.get('clients')
-    #     queryset.clients = clients
-    #     queryset.clientst = queryset.clients.filter(user=user)
-    #     mailings = Mailing.objects.all()
-    #     clients = Client.objects.filter(user=user)
-    #     context_data['clients'] = clients
-    #     return queryset
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
 
     def form_valid(self, form):
         mailing = form.save()
@@ -115,3 +94,4 @@ class MailingDeleteView(DeleteView):
 
 class LogListView(LoginRequiredMixin, ListView):
     model = Log
+
